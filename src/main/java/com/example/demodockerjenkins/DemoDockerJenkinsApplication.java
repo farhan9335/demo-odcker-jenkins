@@ -17,5 +17,10 @@ public class DemoDockerJenkinsApplication {
 	public String welcomeMessage() {
 		return "Welcome, this is first demo of docker and jenkins";
 	}
+	
+	@GetMapping(path = "/second")
+	public String secondMessage() {
+		return "Welcome, this is second demo of docker and jenkins";
+	}
 
 }
