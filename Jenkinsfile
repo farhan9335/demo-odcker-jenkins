@@ -2,8 +2,8 @@ currentBuild.displayName = "demo-docker-jenkins-#"+currentBuild.number
 pipeline{
     agent any
     environment{
-        DOCKER_TAG = dockertag()
-    }
+   DOCKER_TAG = getDockerTag()
+  }
     stages{
         stage("Checkout from GIT..."){
             steps{
