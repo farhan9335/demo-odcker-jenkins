@@ -1,12 +1,8 @@
 currentBuild.displayName = "demo-docker-jenkins-#"+currentBuild.number
-def getDockerTag(){
-    def dockertag = bat(returnStdout:true,script:"@git rev-parse HEAD").trim()
-    return dockertag
-}
 pipeline{
     agent any
     environment{
-        DOCKER_TAG=dockertag()
+        DOCKER_TAG = dockertag()
     }
     stages{
         stage("Checkout from GIT..."){
@@ -34,4 +30,9 @@ pipeline{
 
     }
 
+}
+
+def getDockerTag(){
+    def dockertag = bat(returnStdout:true,script:"@git rev-parse HEAD").trim()
+    return dockertag
 }
