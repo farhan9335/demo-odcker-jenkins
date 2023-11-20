@@ -33,6 +33,8 @@ pipeline{
 }
 
 def getDockerTag(){
-    def dockertag = bat(returnStdout:true,script:"@git rev-parse HEAD").trim()
+    echo "started to execute getDockerTag function"
+    def dockertag = bat(returnStdout: true, script:"@git rev-parse HEAD").trim()
+    echo "execution done getDockerTag function  ${dockertag}"
     return dockertag
 }
