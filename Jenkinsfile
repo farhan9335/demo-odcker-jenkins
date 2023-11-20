@@ -27,6 +27,17 @@ pipeline{
             }
 
         }
+        stage("Docker push"){
+            steps{
+                echo "start docker push"
+                withCredentials([string(credentialsId: 'DockerHUB', variable: 'DockerHUBPassword')]) {
+                 bat "docker login -u farhan1985 -p ${DockerHUBPassword}"
+                 bat "docker push farhan1985/demo-docker-jenkins:${DOCKER_TAG} "
+               }
+                echo "end docker push"
+            }
+
+        }
 
     }
 
