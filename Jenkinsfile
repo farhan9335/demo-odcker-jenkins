@@ -7,6 +7,14 @@ pipeline{
             }
 
         }
+        stage("Mavne Build"){
+            steps{
+                echo "start maven build"
+                bat "mvn clean install"
+                echo "end maven build"
+            }
+
+        }
 
     }
 
