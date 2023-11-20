@@ -1,3 +1,4 @@
+currentBuild.displayName = "demo-docker-jenkins-#"+currentBuild.number
 pipeline{
     agent any
     stages{
